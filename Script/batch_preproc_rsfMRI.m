@@ -10,22 +10,22 @@
 
 
 
-% We use CAT12, SPM12 and mrview to visualize images 
+% We use CAT12 for anatomical preprocessing, SPM12 for rs-fMRI preprocessing, 
+%    and mrview for image visualization.
 
 
 
-
-% First, copy the data to your working directory using Matvol's 
+%% First, copy the data to your working directory using Matvol's 
 % 'r_movefile' function.
 
 
 % Data directory 
-dataDir = '/network/lustre/iss02/cenir/analyse/irm/users/salim.ouarab/data/DataTP_fMRIrs';
+dataDir = '/network/iss/cenir/analyse/irm/users/salim.ouarab/data/DataTP_fMRIrs';
 suj     = gdir(dataDir,'^2')           % 4 subjects 
 
 % Working directory
-% /!\ Change this path with your own workspace path 
-dir     = '/network/lustre/iss02/cenir/analyse/irm/users/salim.ouarab/data/DataTP_fMRIrs/data';
+% /!\ Replace this path with the path to your own workspace.
+dir     = '/network/iss/cenir/analyse/irm/users/salim.ouarab/data/DataTP_fMRIrs/data';
 
 % Using cluster 
 clear par
@@ -41,13 +41,11 @@ r_movefile(suj,dir,'copy',par)
 
 % Get subjects from working directory
 
-dir = '/network/lustre/iss02/cenir/analyse/irm/users/salim.ouarab/data/DataTP_fMRIrs/data';
+dir = '/network/iss/cenir/analyse/irm/users/salim.ouarab/data/DataTP_fMRIrs/data';
 suj = gdir(dir,'^2')          % 4 subjects are copied  
 
 
-% Check data organization and visualize images  :
-%       - file json 
-%       - images 
+% Check data organization 
 
 
 
@@ -81,13 +79,6 @@ job_do_segmentCAT12(fanat,par)
 %                    Using SPM
 %                -------------------
 
-
-% /!\   Slice Timing VS Realign
-
-%     Which step should be used first : slice Timing VS realign ? 
-
-% It just an (SPM) advice : use slice timing first when slice order  
-% is not continuous
 
 
 
